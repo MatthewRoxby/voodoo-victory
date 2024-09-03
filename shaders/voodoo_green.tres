@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bynxjhctyk373"]
+
+[ext_resource type="Shader" path="res://shaders/BodyPartGreen.gdshader" id="1_aa38v"]
+
+[resource]
+shader = ExtResource("1_aa38v")
+shader_parameter/size = Vector2(10, 7.16)
+shader_parameter/col1 = Color(0.184314, 0.835294, 0, 1)
+shader_parameter/col2 = Color(0.0156863, 0.454902, 0, 1)
+shader_parameter/move_speed = 1.0
+shader_parameter/sin_speed = 1.0

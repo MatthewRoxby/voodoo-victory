@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bwj5lqtwu51jo"]
+
+[ext_resource type="Shader" path="res://shaders/bodyPartRed.gdshader" id="1_52y4q"]
+
+[resource]
+shader = ExtResource("1_52y4q")
+shader_parameter/speed = 2.0
+shader_parameter/size = Vector2(9.525, 6.44)
+shader_parameter/wave1 = Color(1, 0, 0.196078, 1)
+shader_parameter/wave2 = Color(0.388235, 0.0666667, 0, 1)
+shader_parameter/dist = 0.23

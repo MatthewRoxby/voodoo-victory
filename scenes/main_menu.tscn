@@ -1,0 +1,1085 @@
+[gd_scene load_steps=57 format=3 uid="uid://c671xgi16067x"]
+
+[ext_resource type="Texture2D" uid="uid://bj5hr2htiyfnv" path="res://sprites/logo.png" id="1_hjk7v"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_y8u02"]
+[ext_resource type="Texture2D" uid="uid://drec072ic6fk2" path="res://sprites/main_menu_knight_body.png" id="2_o6hkx"]
+[ext_resource type="Texture2D" uid="uid://bafuxuf6m4vfo" path="res://sprites/small_circle.png" id="2_yuqmg"]
+[ext_resource type="Texture2D" uid="uid://d4lnly5l13n78" path="res://sprites/PointLight.png" id="3_hl8fy"]
+[ext_resource type="Texture2D" uid="uid://ci3qwgnuxjvx7" path="res://sprites/flame.png" id="3_wqtng"]
+[ext_resource type="Texture2D" uid="uid://u6l3hrkqqvnd" path="res://sprites/spotLight.png" id="5_xcxkf"]
+[ext_resource type="Texture2D" uid="uid://bv4opflqsm2tg" path="res://sprites/mainMenu_rope.png" id="6_6ibxy"]
+[ext_resource type="Script" path="res://scripts/mainMenuRopeAnim.gd" id="7_pohuq"]
+[ext_resource type="FontFile" uid="uid://bk8h4nc6pm3qv" path="res://ui/VCRosdNEUE.ttf" id="8_os2cb"]
+[ext_resource type="StyleBox" uid="uid://cs5df125mxsq4" path="res://ui/woodPanel.tres" id="9_or5j2"]
+[ext_resource type="Script" path="res://scripts/OptionsPanel.gd" id="10_ele7o"]
+[ext_resource type="Shader" path="res://shaders/transition.gdshader" id="12_kwkea"]
+[ext_resource type="Script" path="res://scripts/transition.gd" id="13_3a8ei"]
+[ext_resource type="AudioStream" uid="uid://bexy30v16mp3s" path="res://sounds/sfx/UIclick.wav" id="15_i84cl"]
+[ext_resource type="Script" path="res://scripts/sound_randomiser.gd" id="15_nmig5"]
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="16_sxeda"]
+[ext_resource type="Texture2D" uid="uid://x2l86u6euirp" path="res://screenshots/movement.png" id="17_mufr1"]
+[ext_resource type="AudioStream" uid="uid://cdjcxu5vh0lx1" path="res://sounds/sfx/UIhover.wav" id="17_wk6sc"]
+[ext_resource type="Texture2D" uid="uid://df3c5wipdpyoa" path="res://screenshots/sword swing.png" id="18_frqcn"]
+[ext_resource type="Texture2D" uid="uid://bj2qogtkhl8yj" path="res://screenshots/dodge roll.png" id="19_jvfwq"]
+[ext_resource type="Texture2D" uid="uid://bnwukj83oimkx" path="res://screenshots/voodoo menu.png" id="20_eagh3"]
+[ext_resource type="Texture2D" uid="uid://bce0pqrrkd28i" path="res://screenshots/drag and drop.png" id="21_ucf5p"]
+[ext_resource type="Texture2D" uid="uid://b4taldbome0mm" path="res://screenshots/voodoo bad match.png" id="22_1oaso"]
+[ext_resource type="Texture2D" uid="uid://dvdj54q3rcu3g" path="res://screenshots/voodoo bad damage.png" id="23_m2rj7"]
+[ext_resource type="Texture2D" uid="uid://bicg3ffwjtc5j" path="res://screenshots/voodoo good damage.png" id="24_m1uk5"]
+[ext_resource type="Texture2D" uid="uid://bylj3l3u7yo3g" path="res://screenshots/voodoo good match.png" id="25_8ksic"]
+[ext_resource type="Texture2D" uid="uid://bfa6hhthfb8le" path="res://screenshots/can't move.png" id="26_aghwy"]
+[ext_resource type="Texture2D" uid="uid://ccjwxtp8i11pb" path="res://screenshots/difficulty.png" id="27_1he2c"]
+[ext_resource type="Texture2D" uid="uid://bn8l0oaiomm3x" path="res://screenshots/game over.png" id="28_qxal3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jyw3"]
+
+[sub_resource type="Curve" id="Curve_x1s64"]
+_data = [Vector2(0.906667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_et1o1"]
+curve = SubResource("Curve_x1s64")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_irus2"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_et1o1")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d4cac"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fi66"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fdno"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udojp"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t031b"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ioq"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60tiv"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgtmt"]
+atlas = ExtResource("3_wqtng")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ons5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fi66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fdno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udojp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t031b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ioq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60tiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgtmt")
+}],
+"loop": true,
+"name": &"d",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyjqa"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_w6kjn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(801, 249)]
+}
+
+[sub_resource type="Animation" id="Animation_fg7fj"]
+resource_name = "new_animation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(801, 249), Vector2(801, 170)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qc48v"]
+_data = {
+"RESET": SubResource("Animation_w6kjn"),
+"new_animation": SubResource("Animation_fg7fj")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wttg8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_q6led"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_iw6yy"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y38pq"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1t1wj"]
+color = Color(0.454902, 0.247059, 0.223529, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_p83vx"]
+color = Color(0.243137, 0.537255, 0.282353, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5re05"]
+color = Color(0.388235, 0.780392, 0.301961, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ul86p"]
+content_margin_top = 14.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4prg8"]
+shader = ExtResource("12_kwkea")
+shader_parameter/amount = 0.0
+shader_parameter/aspect = Vector2(1.778, 1)
+shader_parameter/flip = false
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y8u02")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.133333, 0.164706, 1)
+
+[node name="bg" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="bg"]
+modulate = Color(1, 1, 1, 0.231373)
+material = SubResource("CanvasItemMaterial_6jyw3")
+position = Vector2(783, -23)
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_irus2")
+texture = ExtResource("2_yuqmg")
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2(-833.076, -32.3922, 1816.42, 1020.86)
+
+[node name="body" type="Sprite2D" parent="bg"]
+position = Vector2(800, 657)
+scale = Vector2(6.20092, 6.20092)
+texture = ExtResource("2_o6hkx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bg/body"]
+material = SubResource("CanvasItemMaterial_d4cac")
+position = Vector2(-8.06332, -16.7717)
+sprite_frames = SubResource("SpriteFrames_5ons5")
+animation = &"d"
+autoplay = "d"
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="bg/body/AnimatedSprite2D"]
+color = Color(1, 0.270588, 0, 1)
+energy = 2.87
+texture = ExtResource("3_hl8fy")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="bg/body"]
+material = SubResource("CanvasItemMaterial_qyjqa")
+position = Vector2(9.19218, -16.7717)
+sprite_frames = SubResource("SpriteFrames_5ons5")
+animation = &"d"
+autoplay = "d"
+frame_progress = 0.44182
+
+[node name="PointLight2D" type="PointLight2D" parent="bg/body/AnimatedSprite2D2"]
+color = Color(1, 0.270588, 0, 1)
+energy = 2.87
+texture = ExtResource("3_hl8fy")
+
+[node name="logo" type="Sprite2D" parent="bg"]
+position = Vector2(801, 249)
+scale = Vector2(3.62508, 3.62508)
+texture = ExtResource("1_hjk7v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg/logo"]
+libraries = {
+"": SubResource("AnimationLibrary_qc48v")
+}
+autoplay = "new_animation"
+
+[node name="PointLight2D" type="PointLight2D" parent="bg"]
+position = Vector2(800, 422)
+texture = ExtResource("5_xcxkf")
+texture_scale = 37.65
+
+[node name="backRope" type="Line2D" parent="bg"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(347, 564)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 20.0
+texture = ExtResource("6_6ibxy")
+texture_mode = 1
+script = ExtResource("7_pohuq")
+length = 1000
+amplitude = 50.0
+speed = 1.0
+sin_size = 0.1
+
+[node name="backRope4" type="Line2D" parent="bg"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(334, 674)
+rotation = -0.285832
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 20.0
+texture = ExtResource("6_6ibxy")
+texture_mode = 1
+script = ExtResource("7_pohuq")
+length = 1000
+amplitude = 40.0
+speed = 0.5
+sin_size = 0.2
+
+[node name="backRope2" type="Line2D" parent="bg"]
+z_index = 1
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(1322, 808)
+scale = Vector2(-1, -1)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 30.0
+texture = ExtResource("6_6ibxy")
+texture_mode = 1
+script = ExtResource("7_pohuq")
+length = 1000
+amplitude = 50.0
+speed = 1.3
+sin_size = 0.1
+
+[node name="backRope3" type="Line2D" parent="bg"]
+z_index = 1
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-81, 176)
+points = PackedVector2Array(450, 343, 516, 404)
+width = 30.0
+texture = ExtResource("6_6ibxy")
+texture_mode = 1
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="menu" type="Control" parent="ui"]
+layout_mode = 3
+anchor_right = 0.025
+anchor_bottom = 0.0444444
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="ui/menu"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 175.0
+offset_right = 289.0
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "Play"
+
+[node name="FinishTutorial" type="Label" parent="ui/menu/Play"]
+visible = false
+layout_mode = 0
+offset_left = 267.0
+offset_top = 13.0
+offset_right = 528.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.894118, 0.231373, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0.0784314, 0.145098, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 31
+text = "PLEASE FINISH THE 
+TUTORIAL FIRST"
+
+[node name="Tutorial" type="Button" parent="ui/menu"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 333.0
+offset_right = 289.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "Tutorial"
+
+[node name="Options" type="Button" parent="ui/menu"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 493.0
+offset_right = 289.0
+offset_bottom = 600.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "Options"
+
+[node name="Quit" type="Button" parent="ui/menu"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 653.0
+offset_right = 289.0
+offset_bottom = 760.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "Quit"
+
+[node name="OptionsPanel" type="Panel" parent="ui/menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 395.0
+offset_top = 159.0
+offset_right = 1165.0
+offset_bottom = 701.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(385, 271)
+theme_override_styles/panel = ExtResource("9_or5j2")
+script = ExtResource("10_ele7o")
+
+[node name="QuitOptions" type="Button" parent="ui/menu/OptionsPanel"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "x"
+
+[node name="Label" type="Label" parent="ui/menu/OptionsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -264.0
+offset_right = 145.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="ui/menu/OptionsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -129.0
+offset_right = 223.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = SubResource("ImageTexture_q6led")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_iw6yy")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_y38pq")
+theme_override_styles/slider = SubResource("StyleBoxLine_1t1wj")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_p83vx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_5re05")
+max_value = 1.0
+step = 0.01
+
+[node name="ColorRect" type="ColorRect" parent="ui/menu/OptionsPanel/MusicSlider"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Value" type="Label" parent="ui/menu/OptionsPanel/MusicSlider"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 152.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 25
+text = "Music: 100%"
+
+[node name="SfxSlider" type="HSlider" parent="ui/menu/OptionsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -64.0
+offset_right = 223.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = SubResource("ImageTexture_q6led")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_iw6yy")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_y38pq")
+theme_override_styles/slider = SubResource("StyleBoxLine_1t1wj")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_p83vx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_5re05")
+max_value = 1.0
+step = 0.01
+
+[node name="ColorRect" type="ColorRect" parent="ui/menu/OptionsPanel/SfxSlider"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Value" type="Label" parent="ui/menu/OptionsPanel/SfxSlider"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 152.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 25
+text = "SFX: 100%"
+
+[node name="DeleteData" type="Button" parent="ui/menu/OptionsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -263.0
+offset_top = -194.0
+offset_right = 263.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "DELETE ALL DATA"
+
+[node name="hiscore" type="RichTextLabel" parent="ui/menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 22.0
+offset_top = 29.0
+offset_right = 329.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 0
+theme_override_constants/table_h_separation = 0
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("8_os2cb")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ul86p")
+bbcode_enabled = true
+text = "[rainbow][center]highscore: "
+
+[node name="uiclick" type="AudioStreamPlayer" parent="ui/menu"]
+stream = ExtResource("15_i84cl")
+bus = &"SFX"
+script = ExtResource("15_nmig5")
+
+[node name="uihover" type="AudioStreamPlayer" parent="ui/menu"]
+stream = ExtResource("17_wk6sc")
+bus = &"SFX"
+script = ExtResource("15_nmig5")
+
+[node name="Credit" type="Label" parent="ui/menu"]
+layout_mode = 0
+offset_left = 1212.0
+offset_top = 15.0
+offset_right = 1587.0
+offset_bottom = 597.0
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 36
+text = "A game by nitricswight
+
+Code, art, and SFX by nitricswight
+
+Additional SFX by inferno and xumr on freesound
+
+Music by Matthew Pablo, Otto Halmen, Miguel Herrero, and RandomMind on OpenGameArt"
+autowrap_mode = 2
+
+[node name="tutorial" type="Control" parent="ui/menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1560.0
+offset_bottom = 860.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_sxeda")
+
+[node name="Panel" type="Panel" parent="ui/menu/tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -325.0
+offset_right = 464.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(464, 325)
+theme_override_styles/panel = ExtResource("9_or5j2")
+
+[node name="ColorRect" type="ColorRect" parent="ui/menu/tutorial/Panel"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 550.0
+offset_right = 856.0
+offset_bottom = 555.0
+color = Color(0.454902, 0.247059, 0.223529, 1)
+
+[node name="PreviousPage" type="Button" parent="ui/menu/tutorial/Panel"]
+offset_top = 550.0
+offset_right = 100.0
+offset_bottom = 650.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "<"
+
+[node name="NextPage" type="Button" parent="ui/menu/tutorial/Panel"]
+offset_left = 828.0
+offset_top = 550.0
+offset_right = 928.0
+offset_bottom = 650.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = ">"
+
+[node name="PageNum" type="Label" parent="ui/menu/tutorial/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 240.0
+offset_right = 125.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 81
+text = "1/8"
+horizontal_alignment = 1
+
+[node name="Pages" type="Control" parent="ui/menu/tutorial/Panel"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 923.0
+offset_bottom = 549.0
+
+[node name="Page1" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page1"]
+texture_filter = 2
+position = Vector2(227, 216)
+scale = Vector2(1.407, 1.407)
+texture = ExtResource("17_mufr1")
+
+[node name="SwordSwing" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page1"]
+texture_filter = 2
+position = Vector2(657, 213)
+texture = ExtResource("18_frqcn")
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page1"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 401.0
+offset_right = 463.0
+offset_bottom = 500.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Use WASD to move Thimble Knight"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page1"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 404.0
+offset_right = 907.0
+offset_bottom = 503.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Press LMB to swing the needle"
+autowrap_mode = 2
+
+[node name="Page2" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page2"]
+texture_filter = 2
+position = Vector2(456, 229)
+scale = Vector2(1.10162, 1.10162)
+texture = ExtResource("19_jvfwq")
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page2"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 240.0
+offset_right = 820.0
+offset_bottom = 441.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Press RMB to execute a dodge roll that can go through enemies"
+autowrap_mode = 2
+
+[node name="Page3" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page3"]
+texture_filter = 2
+position = Vector2(349, 271)
+scale = Vector2(0.755176, 0.755176)
+texture = ExtResource("20_eagh3")
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page3"]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 154.0
+offset_right = 883.0
+offset_bottom = 457.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Press SPACE
+to toggle the voodoo doll
+interface."
+autowrap_mode = 2
+
+[node name="Page4" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page4"]
+texture_filter = 2
+position = Vector2(686, 266)
+scale = Vector2(0.755176, 0.755176)
+texture = ExtResource("21_ucf5p")
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page4"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 32.0
+offset_right = 360.0
+offset_bottom = 488.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Use the mouse to drag and drop the body parts into each cauldron to change their colour"
+autowrap_mode = 2
+
+[node name="Page5" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+texture_filter = 2
+position = Vector2(108.415, 180.525)
+scale = Vector2(1.15142, 1.15142)
+texture = ExtResource("22_1oaso")
+
+[node name="Movement2" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+texture_filter = 2
+position = Vector2(337.415, 178.525)
+scale = Vector2(1.46234, 1.46234)
+texture = ExtResource("23_m2rj7")
+
+[node name="Movement4" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+texture_filter = 2
+position = Vector2(796, 176)
+scale = Vector2(0.784032, 0.784032)
+texture = ExtResource("24_m1uk5")
+
+[node name="Movement3" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+texture_filter = 2
+position = Vector2(576.415, 175.525)
+scale = Vector2(1.15142, 1.15142)
+texture = ExtResource("25_8ksic")
+
+[node name="ColorRect" type="ColorRect" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+layout_mode = 0
+offset_left = 451.0
+offset_right = 465.0
+offset_bottom = 394.0
+color = Color(0.454902, 0.247059, 0.223529, 1)
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 386.0
+offset_right = 909.0
+offset_bottom = 842.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Matching the colours with that of the enemies will increase the needle's damage and knockback"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 315.0
+offset_right = 1458.0
+offset_bottom = 771.0
+theme_override_colors/font_color = Color(0.305882, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "GOOD MATCH"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page5"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 316.0
+offset_right = 984.0
+offset_bottom = 772.0
+theme_override_colors/font_color = Color(1, 0.117647, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "BAD MATCH"
+autowrap_mode = 2
+
+[node name="Page6" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page6"]
+texture_filter = 2
+position = Vector2(430, 219)
+scale = Vector2(0.590928, 0.590928)
+texture = ExtResource("26_aghwy")
+
+[node name="Label3" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page6"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 438.0
+offset_right = 920.0
+offset_bottom = 537.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "But keep in mind that you cannot move while using the voodoo menu!"
+autowrap_mode = 2
+
+[node name="Page7" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page7"]
+texture_filter = 2
+position = Vector2(458, 202)
+scale = Vector2(2.59015, 2.59015)
+texture = ExtResource("27_1he2c")
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page7"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 369.0
+offset_right = 909.0
+offset_bottom = 825.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "Difficulty increases with time, meaning more enemies with more varied body parts"
+autowrap_mode = 2
+
+[node name="Page8" type="Control" parent="ui/menu/tutorial/Panel/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Sprite2D" parent="ui/menu/tutorial/Panel/Pages/Page8"]
+texture_filter = 2
+position = Vector2(458, 202)
+scale = Vector2(2.59015, 2.59015)
+texture = ExtResource("28_qxal3")
+
+[node name="Label" type="Label" parent="ui/menu/tutorial/Panel/Pages/Page8"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 369.0
+offset_right = 909.0
+offset_bottom = 825.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 48
+text = "If your hearts reach 0, it's game over!
+
+Try and rack up a high score!"
+autowrap_mode = 2
+
+[node name="QuitTutorial" type="Button" parent="ui/menu/tutorial/Panel"]
+offset_right = 70.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.780392, 0.301961, 1)
+theme_override_colors/font_hover_color = Color(0.243137, 0.537255, 0.282353, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.247059, 0.223529, 1)
+theme_override_fonts/font = ExtResource("8_os2cb")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = ExtResource("9_or5j2")
+theme_override_styles/hover = ExtResource("9_or5j2")
+theme_override_styles/pressed = ExtResource("9_or5j2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wttg8")
+text = "x"
+
+[node name="transition" type="ColorRect" parent="ui"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_4prg8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1560.0
+offset_bottom = 860.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+script = ExtResource("13_3a8ei")
+
+[connection signal="mouse_entered" from="ui/menu/Play" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/Play" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/Tutorial" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/Tutorial" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/Options" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/Options" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/Quit" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/Quit" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/OptionsPanel/QuitOptions" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/OptionsPanel/QuitOptions" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/OptionsPanel/DeleteData" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/OptionsPanel/DeleteData" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/tutorial/Panel/PreviousPage" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/tutorial/Panel/PreviousPage" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/tutorial/Panel/NextPage" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/tutorial/Panel/NextPage" to="ui/menu/uiclick" method="play_random"]
+[connection signal="mouse_entered" from="ui/menu/tutorial/Panel/QuitTutorial" to="ui/menu/uihover" method="play_random"]
+[connection signal="pressed" from="ui/menu/tutorial/Panel/QuitTutorial" to="ui/menu/uiclick" method="play_random"]

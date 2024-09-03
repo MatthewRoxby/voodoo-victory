@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ds7jevwnllcu2"
+path="res://.godot/imported/circle.bmp-973fcc44c13df2d2fafa84123a985c09.res"
+
+[deps]
+
+source_file="res://sprites/circle.bmp"
+dest_files=["res://.godot/imported/circle.bmp-973fcc44c13df2d2fafa84123a985c09.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

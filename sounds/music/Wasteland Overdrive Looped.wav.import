@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ryy2ybmd4a25"
+path="res://.godot/imported/Wasteland Overdrive Looped.wav-ce1a23419a9f7dd38d70e28a4145c9a0.sample"
+
+[deps]
+
+source_file="res://sounds/music/Wasteland Overdrive Looped.wav"
+dest_files=["res://.godot/imported/Wasteland Overdrive Looped.wav-ce1a23419a9f7dd38d70e28a4145c9a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
